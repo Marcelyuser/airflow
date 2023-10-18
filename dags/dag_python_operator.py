@@ -4,6 +4,7 @@ import pendulum
 
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+import random
 
 
 with DAG(
@@ -15,7 +16,7 @@ with DAG(
 ) as dag:
     def select_fruit():
         fruit = ['APPLE','BANANA','ORANGE','AVOKADO']
-        rand_it = random.randit(0,3)
+        rand_int = random.randint(0,3)
         print(fruit[rand_int])
 
     py_t1 = PythonOperator(
